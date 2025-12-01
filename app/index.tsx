@@ -108,7 +108,6 @@ const VideoDownloader = () => {
               {/* Infos vidéo */}
               <View className="p-4 bg-gray-100 rounded-2xl">
                 <View className="flex-row gap-3">
-                  <View className="w-20 h-16 rounded-lg overflow-hidden bg-gray-200" />
                   <View className="flex-1 justify-center">
                     <Text className="text-gray-900 font-medium text-sm">{videoData.title}</Text>
                     <Text className="text-gray-500 text-xs">{videoData.author}</Text>
