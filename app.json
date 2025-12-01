@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "ytb-download",
-    "slug": "ytb-download",
+    "name": "YTB Downloader",
+    "slug": "ytb-downloader",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "ytbdownload",
+    "scheme": "ytbdownloader",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
