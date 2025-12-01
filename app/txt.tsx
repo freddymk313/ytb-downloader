@@ -1,42 +1,42 @@
-import { View, Text, Pressable, TextInput } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Image } from "react-native";
-import { Info, Link2 } from "lucide-react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  Pressable,
+  TextInput,
+} from "react-native";
+import { Info, Download, Video, Link2, Checkbox } from "lucide-react-native";
 
-const index = () => {
-    const videoData = null;
+export default function VideoDownloader() {
+  const videoData = null;
   const qualities = [
     { resolution: "1080p", size: "100MB", selected: false },
     { resolution: "720p", size: "50MB", selected: false },
   ];
 
   return (
-    <SafeAreaView className="flex-1 bg-white dark:bg-gray-900">
-      <View className="px-6 py-6">
-        <View className="flex-row items-center justify-between">
-          <View className="flex-row items-center">
-            <Image
-              source={require("@/assets/images/splash-icon.png")}
-              className="w-12 h-12 dark:bg-white rounded-full border-none"
-              resizeMode="contain"
-            />
-            <Text className="text-2xl ml-1 font-bold dark:text-white">
-              TB Downloader
+    <ScrollView className="flex-1 bg-background p-4">
+      <View className="flex-1 items-center justify-center">
+        <View className="w-full max-w-md p-6 space-y-6 rounded-lg bg-card shadow-soft">
+          {/* Header */}
+          <View className="flex-row justify-between items-center">
+            <Text className="text-xl font-bold text-cardForeground">
+              Video Downloader
             </Text>
+            <Pressable className="p-2">
+              <Info size={24} color="hsl(10, 90%, 58%)" />
+            </Pressable>
           </View>
 
-          <Pressable className="p-2">
-            <Info size={25} color="hsl(10, 90%, 58%)" />
-          </Pressable>
-        </View>
-
-        <View className="space-y-4 mt-20">
+          {/* Input URL */}
+          <View className="space-y-4">
             <View className="relative w-full">
               <TextInput
                 placeholder="Ex: https://youtube.com/watch?v=xEN4kQudnOA"
                 placeholderTextColor="hsl(0,0%,45%)"
-                className="h-16 px-4 rounded-full py- bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
+                className="h-12 px-4 rounded-full bg-secondary text-secondaryForeground"
               />
               <Pressable className="absolute right-2 top-1/2 -translate-y-1/2 p-2">
                 <Link2 size={20} color="hsl(0,0%,45%)" />
@@ -44,8 +44,8 @@ const index = () => {
             </View>
 
             {!videoData ? (
-              <Pressable className="w-full mt-8 rounded-full py-4 items-center justify-center bg-orange-500">
-                <Text className="text-gray-50 font-bold">
+              <Pressable className="w-full rounded-full py-3 items-center justify-center bg-primary">
+                <Text className="text-primaryForeground font-bold">
                   Download
                 </Text>
               </Pressable>
@@ -90,22 +90,32 @@ const index = () => {
                       <Text className="text-mutedForeground text-sm">
                         {q.size}
                       </Text>
-                      {/* <Checkbox checked={q.selected} /> */}
+                      <Checkbox checked={q.selected} />
                     </View>
                   </Pressable>
                 ))}
 
-                <Pressable className="w-full mt-8 rounded-full py-4 items-center justify-center bg-orange-500">
-                <Text className="text-gray-50 font-bold">
-                  Download
-                </Text>
-              </Pressable>
+                <Pressable className="w-full rounded-full py-3 items-center justify-center bg-primary">
+                  <Text className="text-primaryForeground font-bold">
+                    Download
+                  </Text>
+                </Pressable>
               </View>
             )}
           </View>
-      </View>
-    </SafeAreaView>
-  );
-};
 
-export default index;
+          {/* Footer */}
+          <View className="pt-4 space-y-2 items-center">
+            <Text className="text-xs text-mutedForeground text-center">
+              Téléchargement YouTube avec Lovable Cloud
+            </Text>
+            <Text className="text-xs text-destructive text-center">
+              ⚠️ Note: Le téléchargement de vidéos YouTube peut violer leurs
+              conditions d'utilisation.
+            </Text>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
+  );
+}
