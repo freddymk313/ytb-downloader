@@ -97,7 +97,7 @@ const VideoDownloader = () => {
           ) : (
             <View className="space-y-4 mt-6">
               {/* Miniature */}
-              <View className="w-full h-48 rounded-2xl overflow-hidden bg-gray-200">
+              <View className="w-full h-56 rounded-xl overflow-hidden bg-gray-200">
                 <Image
                   source={{ uri: videoData.thumbnailMedium || videoData.thumbnail }}
                   className="w-full h-full"
@@ -106,11 +106,11 @@ const VideoDownloader = () => {
               </View>
 
               {/* Infos vidéo */}
-              <View className="p-4 rounded-2xl">
+              <View className="py-4 rounded-2xl mb-4 ">
                 <View className="flex-row gap-3">
                   <View className="flex-1 justify-center">
-                    <Text className="text-gray-900 font-medium text-sm">{videoData.title}</Text>
-                    <Text className="text-gray-500 text-xs">{videoData.author}</Text>
+                    <Text className="text-gray-900 dark:text-gray-50 font-medium text-lg">{videoData.title}</Text>
+                    <Text className="text-gray-500 dark:text-gray-400 text-sm">{videoData.author}</Text>
                   </View>
                 </View>
               </View>
