@@ -1,7 +1,7 @@
+import { Info, Link2, Loader2, Video } from "lucide-react-native";
 import React, { useState } from "react";
-import { View, Text, Pressable, TextInput, Image, ScrollView } from "react-native";
+import { Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Info, Link2, Video, Download, Loader2 } from "lucide-react-native";
 
 interface VideoQuality {
   resolution: string;
@@ -106,7 +106,7 @@ const VideoDownloader = () => {
               </View>
 
               {/* Infos vidéo */}
-              <View className="p-4 bg-gray-100 rounded-2xl">
+              <View className="p-4 rounded-2xl">
                 <View className="flex-row gap-3">
                   <View className="flex-1 justify-center">
                     <Text className="text-gray-900 font-medium text-sm">{videoData.title}</Text>
@@ -120,13 +120,13 @@ const VideoDownloader = () => {
                 <Pressable
                   key={i}
                   onPress={() => toggleQuality(i)}
-                  className={`w-full flex-row justify-between mb-2 items-center p-4 rounded-2xl border ${
-                    q.selected ? "bg-orange-100 border-orange-500" : "bg-white border-gray-300"
+                  className={`w-full flex-row justify-between mb-2 items-center p-3 rounded-2xl border ${
+                    q.selected ? "bg-orange-100 border-orange-500" : "bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700"
                   }`}
                 >
                   <View className="flex-row items-center gap-3">
                     <Video size={20} color="hsl(10, 90%, 58%)" />
-                    <Text className="text-gray-900 font-medium">{q.resolution}</Text>
+                    <Text className={`${q.selected ? "text-gray-900" : "text-gray-900 dark:text-white"} font-medium`}>{q.resolution}</Text>
                   </View>
                   <Text className="text-gray-500 text-sm">{q.size}</Text>
                 </Pressable>
