@@ -120,7 +120,7 @@ const VideoDownloader = () => {
                 <Pressable
                   key={i}
                   onPress={() => toggleQuality(i)}
-                  className={`w-full flex-row justify-between mb-2 items-center p-4 rounded-2xl border ${
+                  className={`w-full flex-row justify-between mt-6 mb-2 items-center p-4 rounded-2xl border ${
                     q.selected ? "bg-orange-100 border-orange-500" : "bg-white border-gray-300"
                   }`}
                 >

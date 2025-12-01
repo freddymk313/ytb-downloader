@@ -73,7 +73,7 @@ const VideoDownloader = () => {
             <TextInput
               placeholder="Ex: https://youtube.com/watch?v=xEN4kQudnOA"
               placeholderTextColor="hsl(0,0%,45%)"
-              className="h-16 px-4 rounded-full bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
+              className="h-14 px-4 rounded-full bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
               value={url}
               onChangeText={setUrl}
             />
