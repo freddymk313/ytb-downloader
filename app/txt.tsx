@@ -1,7 +1,7 @@
+import { Info, Link2, Loader2, Video } from "lucide-react-native";
 import React, { useState } from "react";
-import { View, Text, Pressable, TextInput, Image, ScrollView } from "react-native";
+import { Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Info, Link2, Video, Download, Loader2 } from "lucide-react-native";
 
 interface VideoQuality {
   resolution: string;
@@ -73,7 +73,7 @@ const VideoDownloader = () => {
             <TextInput
               placeholder="Ex: https://youtube.com/watch?v=xEN4kQudnOA"
               placeholderTextColor="hsl(0,0%,45%)"
-              className="h-16 px-4 rounded-full bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
+              className="h-14 px-4 rounded-full bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
               value={url}
               onChangeText={setUrl}
             />
@@ -97,7 +97,7 @@ const VideoDownloader = () => {
           ) : (
             <View className="space-y-4 mt-6">
               {/* Miniature */}
-              <View className="w-full h-48 rounded-2xl overflow-hidden bg-gray-200">
+              <View className="w-full h-56 rounded-xl overflow-hidden bg-gray-200">
                 <Image
                   source={{ uri: videoData.thumbnailMedium || videoData.thumbnail }}
                   className="w-full h-full"
@@ -106,11 +106,11 @@ const VideoDownloader = () => {
               </View>
 
               {/* Infos vidéo */}
-              <View className="p-4 bg-gray-100 rounded-2xl">
+              <View className="py-4 rounded-2xl mb-4 ">
                 <View className="flex-row gap-3">
                   <View className="flex-1 justify-center">
-                    <Text className="text-gray-900 font-medium text-sm">{videoData.title}</Text>
-                    <Text className="text-gray-500 text-xs">{videoData.author}</Text>
+                    <Text className="text-gray-900 dark:text-gray-50 font-medium text-lg">{videoData.title}</Text>
+                    <Text className="text-gray-500 dark:text-gray-400 text-sm">{videoData.author}</Text>
                   </View>
                 </View>
               </View>
@@ -120,13 +120,13 @@ const VideoDownloader = () => {
                 <Pressable
                   key={i}
                   onPress={() => toggleQuality(i)}
-                  className={`w-full flex-row justify-between mt-6 mb-2 items-center p-4 rounded-2xl border ${
-                    q.selected ? "bg-orange-100 border-orange-500" : "bg-white border-gray-300"
+                  className={`w-full flex-row justify-between mb-2 items-center p-3 rounded-2xl border ${
+                    q.selected ? "bg-orange-100 border-orange-500" : "bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700"
                   }`}
                 >
                   <View className="flex-row items-center gap-3">
                     <Video size={20} color="hsl(10, 90%, 58%)" />
-                    <Text className="text-gray-900 font-medium">{q.resolution}</Text>
+                    <Text className={`${q.selected ? "text-gray-900" : "text-gray-900 dark:text-white"} font-medium`}>{q.resolution}</Text>
                   </View>
                   <Text className="text-gray-500 text-sm">{q.size}</Text>
                 </Pressable>
